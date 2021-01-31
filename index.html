@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
         * {
           padding: 0;
-          margin: 0;
+          margin: 0;      
           /* font-family: "Jost", sans-serif; */
           font-family: "Quicksand", sans-serif;
         }
@@ -217,5 +221,61 @@
         <h3 class="tempmin_max">Min 26.49°C | Max 26.49°C</h3>
     </div>
     </div>
+    <script>
+    const curDate= document.getElementById("date");
+    let weathercon=document.getElementById("weathercon");
+    const tempStatus="Clouds";
+    const getCurrentDay=()=>{
+      var weekday=new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tue";
+      weekday[3] = "Wed";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      let currentTime=new Date();
+      let day=weekday[currentTime.getDay()];
+      return day;
+    };
+    //console.log(getCurrentDay());
+    const getCurrentTime = () => {
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "June",
+          "July",
+          "Aug",
+          "Sept",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
+        var now = new Date();
+        var month = months[now.getMonth()];
+        var date = now.getDate();
+
+        let hours = now.getHours();
+        let mins = now.getMinutes();
+
+        let periods = "AM";
+
+        if (hours > 11) {
+          periods = "PM";
+          if (hours > 12) hours -= 12;
+        }
+        if (mins < 10) {
+          mins = "0" + mins;
+        }
+
+        return `${month} ${date} | ${hours}:${mins}${periods}` ;
+      };
+      curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
+
+    </script>
 </body>
 </html>
