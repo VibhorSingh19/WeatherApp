@@ -4,7 +4,7 @@ const fs = require("fs");
 var requests = require("requests");
 
 
-const homeFile = fs.readFileSync("home.html", "utf-8");
+const homeFile = fs.readFileSync("index.html", "utf-8");
 
 
 const replaceVal = (tempVal, orgVal) => {
